@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Services</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <style>
+    .rotate-360 {
+      transition: transform 0.5s ease-in-out;
+    }
+    body {
+      font-family: sans-serif; /* Apply sans-serif font throughout the document */
+    }
+    /* Add this CSS for the diagonal split background */
+    .diagonal-bg {
+      background: linear-gradient(150deg, #131061 50%, #f7fafc 50%); /* Change #f7fafc to match your existing gray color */
+      height: 100vh; /* Make it full height */
+    }
+    /* Add this CSS to position the circle and add a border */
+    .circle-icon {
+      width: 100px; /* Set width for the circle */
+      height: 100px; /* Set height for the circle */
+      position: relative;
+      top: -55px; /* Adjust this value to control how much the circle overlaps */
+      margin: 0 auto; /* Center the circle */
+      border: 5px solid #131061; /* Add a bold border */
+      border-radius: 50%; /* Ensure the border is round */
+      font-size: 3rem; /* Increase font size for larger icons */
+    }
+  </style>
+</head>
+<body class="bg-gray-100">
+  <div id="assignment" class="diagonal-bg max-w-full mx-auto p-10 bg-white rounded-lg shadow-lg">
+    <div class="text-left mb-12">
+      <h1 class="text-5xl font-bold text-white">OUR SERVICES</h1>
+    </div>
+
+    <!-- Services Grid -->
+    <div class="flex justify-center items-center" style="height: 400px;">
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+
+            <!-- Service 1 -->
+            <div class="service-box rotate-360 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transform transition-all duration-500">
+              <div class="flex justify-center mb-4">
+                <div class="circle-icon bg-white flex items-center justify-center">
+                    <i class="fa-solid fa-car-on" style="color: #b70632;"></i>
+                </div>
+              </div>
+              <h2 class="text-2xl font-bold mb-2 text-center">Emergency Plumbing Services</h2>
+              <p class="text-gray-600 text-center">Our plumbers are ready to go 24/7 for emergencies-including nights, weekends, and holidays.</p>
+              <a href="#" class="block mt-4 text-center text-purple-700 font-semibold" style="color: #131061;">Explore This Service ></a>
+            </div>
+      
+            <!-- Service 2 -->
+            <div class="service-box rotate-360 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transform transition-all duration-500">
+              <div class="flex justify-center mb-4">
+                <div class="circle-icon bg-white flex items-center justify-center">
+                    <i class="fa-solid fa-screwdriver-wrench" style="color: #7a7f7f;"></i><!-- Water icon -->
+                </div>
+              </div>
+              <h2 class="text-2xl font-bold mb-2 text-center">Plumbing and Drains</h2>
+              <p class="text-gray-600 text-center">As the largest plumbing and drain service company, we make thousands of repairs every day.</p>
+              <a href="#" class="block mt-4 text-center text-purple-700 font-semibold" style="color: #131061;">Explore This Service ></a>
+            </div>
+
+            <!-- Service 3 -->
+            <div class="service-box rotate-360 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transform transition-all duration-500">
+              <div class="flex justify-center mb-4">
+                <div class="circle-icon bg-white flex items-center justify-center">
+                    <i class="fa-solid fa-droplet" style="color: #185bcd;"></i> <!-- Water damage icon -->
+                </div>
+              </div>
+              <h2 class="text-2xl font-bold mb-2 text-center">Water Damage</h2>
+              <p class="text-gray-600 text-center">Our teams are equipped with state-of-the-art water extracting and cleanup equipment.</p>
+              <a href="#" class="block mt-4 text-center text-purple-700 font-semibold" style="color: #131061;">Explore This Service ></a>
+            </div>
+
+            <!-- Service 4 -->
+            <div class="service-box rotate-360 bg-white p-6 rounded-lg shadow-md hover:shadow-xl transform transition-all duration-500">
+              <div class="flex justify-center mb-4">
+                <div class="circle-icon bg-white flex items-center justify-center">
+                    <i class="fa-solid fa-temperature-arrow-up" style="color: #ca0c0c;"></i> <!-- Water heater icon -->
+                </div>
+              </div>
+              <h2 class="text-2xl font-bold mb-2 text-center">Water Heaters</h2>
+              <p class="text-gray-600 text-center">Trust Roto-Rooter for repair and replacement of gas, electric and tankless water heaters.</p>
+              <a href="#" class="block mt-4 text-center text-purple-700 font-semibold" style="color: #131061;">Explore This Service ></a>
+            </div>
+          </div>
+     </div>
+    
+  </div>
+
+  <script>
+    // Select all service boxes
+    const serviceBoxes = document.querySelectorAll('.service-box');
+
+    // Add hover event listener to each service box
+    serviceBoxes.forEach(box => {
+      let isRotating = false; // Flag to track if the box is currently rotating
+
+      box.addEventListener('mouseenter', () => {
+        if (!isRotating) { // Start rotation only if not already rotating
+          isRotating = true; // Set the flag to true
+          anime({
+            targets: box,
+            rotate: '+=360', // Incremental rotation
+            duration: 1000, // Duration of one rotation
+            easing: 'linear', // Linear easing for consistent speed
+            loop: true // Set to loop while hovering
+          });
+        }
+      });
+
+      // Stop the animation on mouse leave
+      box.addEventListener('mouseleave', () => {
+        isRotating = false; // Reset the flag
+        anime({
+          targets: box,
+          rotate: 0, // Reset rotation
+          duration: 500, // Duration to reset
+          easing: 'easeOutSine' // Easing for reset
+        });
+      });
+    });
+  </script>
+</body>
+</html>
