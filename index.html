@@ -107,23 +107,22 @@
           isRotating = true; // Set the flag to true
           anime({
             targets: box,
-            rotate: '+=360', // Incremental rotation
-            duration: 1000, // Duration of one rotation
-            easing: 'linear', // Linear easing for consistent speed
-            loop: true // Set to loop while hovering
+            rotate: 360, // Single 360-degree rotation
+            duration: 1000, // Duration of the rotation
+            easing: 'easeInOutSine' // Smooth easing
           });
         }
       });
 
-      // Stop the animation on mouse leave
+      // Stop the animation and reset on mouse leave
       box.addEventListener('mouseleave', () => {
-        isRotating = false; // Reset the flag
         anime({
           targets: box,
           rotate: 0, // Reset rotation
           duration: 500, // Duration to reset
           easing: 'easeOutSine' // Easing for reset
         });
+        isRotating = false; // Reset the flag
       });
     });
   </script>
